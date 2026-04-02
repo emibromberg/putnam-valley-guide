@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        
+
         :root {
             --bg: #020617;
             --card-bg: #0f172a;
@@ -19,7 +19,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -69,9 +69,9 @@
             margin-bottom: 40px;
             overflow-x: auto;
             padding-bottom: 10px;
-        
-        
-                .tab-btn {
+        }
+
+        .tab-btn {
             background: none;
             border: none;
             color: var(--text-dim);
@@ -197,6 +197,38 @@
             gap: 12px;
         }
 
+        .quick-links {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .link-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 15px 30px;
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .link-box:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 640px) {
             .hero-title { font-size: 2.5rem; }
             .tabs { justify-content: flex-start; }
@@ -239,7 +271,7 @@
                         <div class="meta-item"><i class="fas fa-arrows-alt-h"></i> 4.5 Miles</div>
                         <div class="meta-item"><i class="fas fa-mountain"></i> 650ft Gain</div>
                     </div>
-                    <a href="#" class="btn-link">View Trail Map <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://www.alltrails.com/park/us/new-york/clarence-fahnestock-state-park" target="_blank" class="btn-link">View Trail Map <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="card">
                     <div class="card-header">
@@ -251,7 +283,7 @@
                         <div class="meta-item"><i class="fas fa-arrows-alt-h"></i> 3.2 Miles</div>
                         <div class="meta-item"><i class="fas fa-mountain"></i> 300ft Gain</div>
                     </div>
-                    <a href="#" class="btn-link">Trail Details <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://www.dec.ny.gov/lands/94314.html" target="_blank" class="btn-link">Trail Details <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -269,7 +301,7 @@
                         <div class="meta-item"><i class="fas fa-bolt"></i> E-Bike Friendly</div>
                         <div class="meta-item"><i class="fas fa-clock"></i> Long Distance</div>
                     </div>
-                    <a href="#" class="btn-link">Route Details <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://empiretrail.ny.gov/map" target="_blank" class="btn-link">Route Details <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="card">
                     <div class="card-header">
@@ -281,7 +313,7 @@
                         <div class="meta-item"><i class="fas fa-mountain"></i> High Elevation</div>
                         <div class="meta-item"><i class="fas fa-leaf"></i> Scenic</div>
                     </div>
-                    <a href="#" class="btn-link">Route Map <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://www.google.com/maps/search/gravel+cycling+routes+near+Putnam+Valley" target="_blank" class="btn-link">Route Map <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -299,10 +331,32 @@
                         <div class="meta-item"><i class="fas fa-mug-hot"></i> Coffee & Food</div>
                         <div class="meta-item"><i class="fas fa-users"></i> Community</div>
                     </div>
-                    <a href="#" class="btn-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://peekskillcoffee.com" target="_blank" class="btn-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Cold Spring</h3>
+                        <span class="card-badge">Town</span>
+                    </div>
+                    <p class="card-desc">Ride over to Cold Spring for waterfront dining and numerous specialized bike shops.</p>
+                    <div class="card-meta">
+                        <div class="meta-item"><i class="fas fa-ship"></i> Waterfront</div>
+                        <div class="meta-item"><i class="fas fa-bicycle"></i> Bike Friendly</div>
+                    </div>
+                    <a href="https://www.google.com/maps/search/restaurants+in+Cold+Spring+NY" target="_blank" class="btn-link">Explore Map <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
+
+        <div class="quick-links">
+            <a href="https://weather.com/weather/today/l/10579:4:US" target="_blank" class="link-box"><i class="fas fa-sun"></i> Weather</a>
+            <a href="https://www.strava.com/dashboard" target="_blank" class="link-box"><i class="fab fa-strava"></i> Strava</a>
+            <a href="https://www.mapmyrun.com/routes/create/" target="_blank" class="link-box"><i class="fas fa-map-marked-alt"></i> Map Routes</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Putnam Valley Outdoor Guide. Centered on 18 Rochdale Road.</p>
+        </footer>
     </div>
 
     <script>
@@ -320,258 +374,5 @@
             document.getElementById(sectionId).classList.add('active');
         }
     </script>
-</body>
-</html>}
-
-        .tab-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            color: var(--text-dim);
-            padding: 12px 24px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .tab-btn.active {
-            background: var(--accent);
-            color: var(--bg);
-            border-color: var(--accent);
-        }
-
-        .section {
-            display: none;
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px;
-            transition: transform 0.3s, border-color 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-        }
-
-        .card i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #1e293b;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 5px;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 14px;
-            background: var(--accent);
-            color: var(--bg);
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background: var(--accent-hover);
-        }
-
-        .quick-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .link-box {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 16px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .link-box:hover { border-color: var(--accent); }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <div class="address-tag">
-            <i class="fas fa-location-dot" style="margin-right:8px"></i> 18 Rochdale Road, Putnam Valley
-        </div>
-        <h1 class="hero-title">Outdoor Guide</h1>
-        <p style="color: var(--text-dim)">Your master dashboard for biking, hiking, and exploring from home.</p>
-    </header>
-
-    <div class="tabs">
-        <button class="tab-btn active" onclick="showSection('biking')">Biking</button>
-        <button class="tab-btn" onclick="showSection('hiking')">Hiking</button>
-        <button class="tab-btn" onclick="showSection('local')">Local Spots</button>
-        <button class="tab-btn" onclick="showSection('ebike')">E-Bike Maintenance</button>
-    </div>
-
-    <!-- BIKING SECTION -->
-    <div id="biking" class="section active">
-        <div class="grid">
-            <div class="card">
-                <span class="tag">5 MIN DRIVE</span>
-                <i class="fas fa-bicycle"></i>
-                <h3>Fahnestock Trails</h3>
-                <p>Top-tier mountain biking. Stick to the carriage roads for a relaxed ride or hit the technical singletrack for a challenge.</p>
-                <a href="https://www.trailforks.com/region/clarence-fahnestock-state-park/" class="btn" target="_blank">View Trailforks <i class="fas fa-external-link-alt"></i></a>
-            </div>
-            <div class="card">
-                <span class="tag">PAVED / FLAT</span>
-                <i class="fas fa-route"></i>
-                <h3>Empire State Trail</h3>
-                <p>The Putnam County Trailway is accessible via Mahopac or Brewster. Miles of car-free paved cycling.</p>
-                <a href="https://empiretrail.ny.gov/map" class="btn" target="_blank">Interactive Map <i class="fas fa-map"></i></a>
-            </div>
-            <div class="card">
-                <span class="tag">GRAVEL</span>
-                <i class="fas fa-mountain-sun"></i>
-                <h3>Old Albany Post Rd</h3>
-                <p>Historic dirt road biking right in your backyard. One of the oldest continuously used unpaved roads in the US.</p>
-                <a href="https://www.google.com/maps/dir/18+Rochdale+Rd,+Putnam+Valley,+NY+10579/Old+Albany+Post+Rd,+Garrison,+NY" class="btn" target="_blank">Directions <i class="fas fa-directions"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- HIKING SECTION -->
-    <div id="hiking" class="section">
-        <div class="grid">
-            <div class="card">
-                <span class="tag">EPIC VIEWS</span>
-                <i class="fas fa-mountain"></i>
-                <h3>Hudson Highlands</h3>
-                <p>Breakneck Ridge and Bull Hill offer the best river views in the county. Steep, rocky, and rewarding.</p>
-                <a href="https://www.alltrails.com/parks/us/new-york/hudson-highlands-state-park-preserve" class="btn" target="_blank">Top Trails <i class="fas fa-hiking"></i></a>
-            </div>
-            <div class="card">
-                <span class="tag">QUIET / WOODED</span>
-                <i class="fas fa-tree"></i>
-                <h3>California Hill</h3>
-                <p>Lesser-known state forest with great wooded loops. Excellent for a quick nature escape without the crowds.</p>
-                <a href="https://www.dec.ny.gov/lands/94314.html" class="btn" target="_blank">Forest Info <i class="fas fa-info-circle"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- E-BIKE MAINTENANCE -->
-    <div id="ebike" class="section">
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-battery-bolt"></i>
-                <h3>Battery Care</h3>
-                <p>Tips for maintaining your e-bike battery during cold Putnam winters. Store at 50-70% charge for longevity.</p>
-                <a href="https://www.bosch-ebike.com/en/service/battery-guide" class="btn" target="_blank">Bosch Guide <i class="fas fa-book"></i></a>
-            </div>
-            <div class="card">
-                <i class="fas fa-screwdriver-wrench"></i>
-                <h3>Local Shops</h3>
-                <p>The Bicycle World in Mt Kisco or Yorktown Cycles are reliable for e-bike repairs and specialized parts.</p>
-                <a href="https://www.google.com/maps/search/bike+shops+near+Putnam+Valley" class="btn" target="_blank">Find Nearby <i class="fas fa-search"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- LOCAL SPOTS -->
-    <div id="local" class="section">
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-mug-hot"></i>
-                <h3>Post-Ride Coffee</h3>
-                <p>Cold Spring is the perfect destination for a post-ride espresso or a hearty meal by the water.</p>
-                <a href="https://www.google.com/maps/search/coffee+near+Cold+Spring+NY" class="btn" target="_blank">Coffee Map <i class="fas fa-coffee"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="quick-links">
-        <a href="https://weather.com/weather/today/l/10579:4:US" class="link-box" target="_blank">
-            <i class="fas fa-sun"></i><br>Weather
-        </a>
-        <a href="https://www.strava.com/dashboard" class="link-box" target="_blank">
-            <i class="fab fa-strava"></i><br>Strava
-        </a>
-        <a href="https://www.mapmyrun.com/routes/create/" class="link-box" target="_blank">
-            <i class="fas fa-map-marked-alt"></i><br>Map Routes
-        </a>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Putnam Valley Bike Guide. Centered on 18 Rochdale Road.</p>
-    </footer>
-</div>
-
-<script>
-    function showSection(sectionId) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        
-        document.getElementById(sectionId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-</script>
-
 </body>
 </html>
