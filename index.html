@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putnam Valley Bike & Hike Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s;
+            border: 1px solid #334155;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        .card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+        }
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .address-box {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Putnam Valley Guide</h1>
+        <p>Biking & Hiking from 18 Rochdale Road</p>
+    </div>
+
+    <div class="address-box">
+        <i class="fas fa-home"></i> 18 Rochdale Road, Putnam Valley, NY 10579
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <i class="fas fa-bicycle"></i>
+            <h3>Fahnestock State Park</h3>
+            <p>Incredible mountain biking and hiking trails just minutes away. Features the Appalachian Trail and numerous carriage roads.</p>
+            <a href="https://parks.ny.gov/parks/fahnestock/details.aspx" class="btn" target="_blank">View Park Info</a>
+        </div>
+        <div class="card">
+            <i class="fas fa-mountain"></i>
+            <h3>Hudson Highlands</h3>
+            <p>Challenging hikes with stunning river views. Breakneck Ridge and Bull Hill are local favorites for a serious workout.</p>
+            <a href="https://www.nynjtc.org/park/hudson-highlands-state-park" class="btn" target="_blank">Trail Maps</a>
+        </div>
+        <div class="card">
+            <i class="fas fa-route"></i>
+            <h3>Empire State Trail</h3>
+            <p>Access the North County Trailway for smooth, paved cycling that connects all the way down to NYC or up to Albany.</p>
+            <a href="https://empiretrail.ny.gov/" class="btn" target="_blank">Explore Trail</a>
+        </div>
+        <div class="card">
+            <i class="fas fa-tools"></i>
+            <h3>Bike Maintenance</h3>
+            <p>Quick links to local shops and DIY resources for keeping your e-bike in top shape for the Putnam hills.</p>
+            <a href="https://www.youtube.com/c/parktool" class="btn" target="_blank">Repair Guides</a>
+        </div>
+    </div>
+</body>
+</html>
