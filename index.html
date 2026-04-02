@@ -69,7 +69,259 @@
             margin-bottom: 40px;
             overflow-x: auto;
             padding-bottom: 10px;
+        
+        
+                .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            white-space: nowrap;
         }
+
+        .tab-btn:hover {
+            color: var(--text);
+            background: var(--card-bg);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            background: var(--card-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .card-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .card-desc {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .meta-item i {
+            color: var(--accent);
+            width: 14px;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: gap 0.2s;
+        }
+
+        .btn-link:hover {
+            gap: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.5rem; }
+            .tabs { justify-content: flex-start; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="address-tag">
+                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
+                Putnam Valley, NY
+            </div>
+            <h1 class="hero-title">Outdoor Guide</h1>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showSection('hiking')">
+                <i class="fas fa-hiking" style="margin-right: 8px;"></i>Hiking
+            </button>
+            <button class="tab-btn" onclick="showSection('biking')">
+                <i class="fas fa-bicycle" style="margin-right: 8px;"></i>Biking
+            </button>
+            <button class="tab-btn" onclick="showSection('local')">
+                <i class="fas fa-coffee" style="margin-right: 8px;"></i>Local Spots
+            </button>
+        </div>
+
+        <!-- Hiking Section -->
+        <div id="hiking" class="section active">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Fahnestock Loop</h3>
+                        <span class="card-badge">Moderate</span>
+                    </div>
+                    <p class="card-desc">Beautiful loop through Clarence Fahnestock State Park with lake views and rocky terrain.</p>
+                    <div class="card-meta">
+                        <div class="meta-item"><i class="fas fa-arrows-alt-h"></i> 4.5 Miles</div>
+                        <div class="meta-item"><i class="fas fa-mountain"></i> 650ft Gain</div>
+                    </div>
+                    <a href="#" class="btn-link">View Trail Map <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">California Hill</h3>
+                        <span class="card-badge">Easy</span>
+                    </div>
+                    <p class="card-desc">A peaceful walk through diverse forest habitats with multiple interconnecting trails.</p>
+                    <div class="card-meta">
+                        <div class="meta-item"><i class="fas fa-arrows-alt-h"></i> 3.2 Miles</div>
+                        <div class="meta-item"><i class="fas fa-mountain"></i> 300ft Gain</div>
+                    </div>
+                    <a href="#" class="btn-link">Trail Details <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biking Section -->
+        <div id="biking" class="section">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Empire State Trail</h3>
+                        <span class="card-badge">Paved</span>
+                    </div>
+                    <p class="card-desc">The nearby rail-trail section offering smooth riding through scenic woodlands. Excellent for E-Bikes.</p>
+                    <div class="card-meta">
+                        <div class="meta-item"><i class="fas fa-bolt"></i> E-Bike Friendly</div>
+                        <div class="meta-item"><i class="fas fa-clock"></i> Long Distance</div>
+                    </div>
+                    <a href="#" class="btn-link">Route Details <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Local Gravel Loops</h3>
+                        <span class="card-badge">Gravel</span>
+                    </div>
+                    <p class="card-desc">Backroads of Putnam Valley featuring significant elevation and quiet nature scenes.</p>
+                    <div class="card-meta">
+                        <div class="meta-item"><i class="fas fa-mountain"></i> High Elevation</div>
+                        <div class="meta-item"><i class="fas fa-leaf"></i> Scenic</div>
+                    </div>
+                    <a href="#" class="btn-link">Route Map <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Local Section -->
+        <div id="local" class="section">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Peekskill Coffee House</h3>
+                        <span class="card-badge">Cafe</span>
+                    </div>
+                    <p class="card-desc">The perfect post-ride destination for coffee, crepes, and local atmosphere.</p>
+                    <div class="card-meta">
+                        <div class="meta-item"><i class="fas fa-mug-hot"></i> Coffee & Food</div>
+                        <div class="meta-item"><i class="fas fa-users"></i> Community</div>
+                    </div>
+                    <a href="#" class="btn-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Update tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Update sections
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>}
 
         .tab-btn {
             background: var(--card-bg);
