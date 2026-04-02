@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Putnam Valley Outdoor Guide</title>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\">\n    <style>\n        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');\n        \n        :root {\n            --bg: #020617;\n            --card-bg: #0f172a;\n            --accent: #38bdf8;\n            --accent-hover: #0ea5e9;\n            --text: #f8fafc;\n            --text-dim: #94a3b8;\n            --border: #1e293b;\n        }\n\n        * { margin: 0; padding: 0; box-sizing: border-box; }\n\n        body {\n            background-color: var(--bg);\n            color: var(--text);\n            font-family: 'Plus Jakarta Sans', sans-serif;\n            line-height: 1.6;\n            padding-bottom: 100px;\n        }\n\n        .container {\n            max-width: 1000px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n\n        header {\n            padding: 60px 0 40px;\n            text-align: center;\n        }\n\n        .hero-title {\n            font-size: 3.5rem;\n            font-weight: 800;\n            letter-spacing: -0.05em;\n            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);\n            -webkit-background-clip: text;\n            -webkit-text-fill-color: transparent;\n            margin-bottom: 10px;\n        }\n\n        .address-tag {\n            display: inline-flex;\n            align-items: center;\n            background: var(--card-bg);\n            padding: 8px 16px;\n            border-radius: 100px;\n            border: 1px solid var(--border);\n            color: var(--accent);\n            font-weight: 600;\n            font-size: 0.9rem;\n            margin-bottom: 30px;\n        }\n\n        .tabs {\n            display: flex;\n            justify-content: center;\n            gap: 10px;\n            margin-bottom: 40px;\n            overflow-x: auto;\n            padding-bottom: 10px;\n        }\n\n        .tab-btn {\n            background: none;\n            border: none;\n            color: var(--text-dim);\n            padding: 10px 24px;\n            font-size: 1rem;\n            font-weight: 600;\n            cursor: pointer;\n            border-radius: 8px;\n            transition: all 0.2s;\n            white-space: nowrap;\n        }\n\n        .tab-btn:hover {\n            color: var(--text);\n            background: var(--card-bg);\n        }\n\n        .tab-btn.active {\n            color: var(--accent);\n            background: var(--card-bg);\n            box-shadow: 0 4px 12px rgba(0,0,0,0.2);\n        }\n\n        .section {\n            display: none;\n            animation: fadeIn 0.3s ease-out;\n        }\n\n        .section.active {\n            display: block;\n        }\n\n        @keyframes fadeIn {\n            from { opacity: 0; transform: translateY(10px); }\n            to { opacity: 1; transform: translateY(0); }\n        }\n\n        .grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));\n            gap: 24px;\n        }\n\n        .card {\n            background: var(--card-bg);\n            border: 1px solid var(--border);\n            border-radius: 16px;\n            padding: 24px;\n            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n            position: relative;\n            overflow: hidden;\n            display: flex;\n            flex-direction: column;\n        }\n\n        .card:hover {\n            transform: translateY(-5px);\n            border-color: var(--accent);\n            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);\n        }\n\n        .card-header {\n            display: flex;\n            justify-content: space-between;\n            align-items: flex-start;\n            margin-bottom: 16px;\n        }\n\n        .card-title {\n            font-size: 1.25rem;\n            font-weight: 700;\n            color: var(--text);\n        }\n\n        .card-badge {\n            background: rgba(56, 189, 248, 0.1);\n            color: var(--accent);\n            padding: 4px 10px;\n            border-radius: 6px;\n            font-size: 0.75rem;\n            font-weight: 700;\n            text-transform: uppercase;\n        }\n\n        .card-desc {\n            color: var(--text-dim);\n            font-size: 0.95rem;\n            margin-bottom: 20px;\n            flex-grow: 1;\n        }\n\n        .card-meta {\n            display: flex;\n            flex-wrap: wrap;\n            gap: 16px;\n            padding-top: 16px;\n            border-top: 1px solid var(--border);\n        }\n\n        .meta-item {\n            display: flex;\n            align-items: center;\n            gap: 6px;\n            font-size: 0.85rem;\n            color: var(--text-dim);\n        }\n\n        .meta-item i {\n            color: var(--accent);\n            width: 14px;\n        }\n\n        .btn-link {\n            display: inline-flex;\n            align-items: center;\n            gap: 8px;\n            margin-top: 20px;\n            color: var(--accent);\n            text-decoration: none;\n            font-size: 0.9rem;\n            font-weight: 600;\n            transition: gap 0.2s;\n        }\n\n        .btn-link:hover {\n            gap: 12px;\n        }\n\n        .quick-links {\n            margin-top: 60px;\n            display: flex;\n            justify-content: center;\n            gap: 20px;\n            flex-wrap: wrap;\n        }\n\n        .link-box {\n            background: var(--card-bg);\n            border: 1px solid var(--border);\n            padding: 15px 30px;\n            border-radius: 12px;\n            color: var(--text);\n            text-decoration: none;\n            font-weight: 600;\n            text-align: center;\n            transition: all 0.2s;\n            display: flex;\n            align-items: center;\n            gap: 10px;\n        }\n\n        .link-box:hover {\n            border-color: var(--accent);\n            transform: translateY(-2px);\n        }\n\n        footer {\n            margin-top: 80px;\n            text-align: center;\n            color: var(--text-dim);\n            font-size: 0.9rem;\n        }\n\n        @media (max-width: 640px) {\n            .hero-title { font-size: 2.5rem; }\n            .tabs { justify-content: flex-start; }\n            .grid { grid-template-columns: 1fr; }\n        }\n    </style>\n</head>\n<body>\n\n    <div class=\"container\">\n        <header>\n            <div class=\"address-tag\">\n                <i class=\"fas fa-map-marker-alt\" style=\"margin-right: 8px;\"></i>\n                Putnam Valley, NY\n            </div>\n            <h1 class=\"hero-title\">Outdoor Guide</h1>\n        </header>\n\n        <div class=\"tabs\">\n            <button class=\"tab-btn active\" onclick=\"showSection(event, 'hiking')\">\n                <i class=\"fas fa-hiking\" style=\"margin-right: 8px;\"></i>Hiking\n            </button>\n            <button class=\"tab-btn\" onclick=\"showSection(event, 'biking')\">\n                <i class=\"fas fa-bicycle\" style=\"margin-right: 8px;\"></i>Biking\n            </button>\n            <button class=\"tab-btn\" onclick=\"showSection(event, 'local')\">\n                <i class=\"fas fa-coffee\" style=\"margin-right: 8px;\"></i>Local Spots\n            </button>\n        </div>\n\n        <!-- Hiking Section -->\n        <div id=\"hiking\" class=\"section active\">\n            <div class=\"grid\">\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">The Full English</h3>\n                        <span class=\"card-badge\">Daily</span>\n                    </div>\n                    <p class=\"card-desc\">The essential 45-minute morning loop. Perfect for a quick recharge right from Rochdale Road.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-clock\"></i> 45 Mins</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-leaf\"></i> Local Loop</div>\n                    </div>\n                </div>\n\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Granite Mountain</h3>\n                        <span class=\"card-badge\">Moderate</span>\n                    </div>\n                    <p class=\"card-desc\">Rugged preserve with diverse ecology and great views. Features 5+ miles of trails through 500+ acres of forest.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-arrows-alt-h\"></i> 4 Miles</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-mountain\"></i> 922ft Gain</div>\n                    </div>\n                    <a href=\"https://hhlt.org/granite-mountain-preserve/\" target=\"_blank\" class=\"btn-link\">Preserve Info <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Fahnestock Loop</h3>\n                        <span class=\"card-badge\">Moderate</span>\n                    </div>\n                    <p class=\"card-desc\">Beautiful loop through Clarence Fahnestock State Park with lake views and rocky terrain. Ideal for technical hiking.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-arrows-alt-h\"></i> 4.5 Miles</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-mountain\"></i> 650ft Gain</div>\n                    </div>\n                    <a href=\"https://www.alltrails.com/park/us/new-york/clarence-fahnestock-state-park\" target=\"_blank\" class=\"btn-link\">View Trail Map <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n            </div>\n        </div>\n\n        <!-- Biking Section -->\n        <div id=\"biking\" class=\"section\">\n            <div class=\"grid\">\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Putnam Trailway</h3>\n                        <span class=\"card-badge\">Paved</span>\n                    </div>\n                    <p class=\"card-desc\">Nearby rail-trail section offering nearly 12 miles of smooth, car-free riding. Excellent for E-Bikes.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-bolt\"></i> Class 1 OK\n</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-road\"></i> 12 Miles</div>\n                    </div>\n                    <a href=\"https://www.traillink.com/trail/putnam-trailway/\" target=\"_blank\" class=\"btn-link\">Trail Details <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Ninham Mountain</h3>\n                        <span class=\"card-badge\">MTB</span>\n                    </div>\n                    <p class=\"card-desc\">Legendary multi-use area with 1,000+ acres. Features fire towers and challenging terrain for both MTB and E-MTB.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-mountain\"></i> 1,000ft Gain</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-bolt\"></i> E-MTB Friendly</div>\n                    </div>\n                    <a href=\"https://www.dec.ny.gov/lands/34745.html\" target=\"_blank\" class=\"btn-link\">Route Info <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Empire State Trail</h3>\n                        <span class=\"card-badge\">Paved</span>\n                    </div>\n                    <p class=\"card-desc\">Part of the 750-mile NY state network. Accessible via nearby trailheads for long-distance endurance rides.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-bolt\"></i> E-Bike Friendly</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-clock\"></i> Long Distance</div>\n                    </div>\n                    <a href=\"https://empiretrail.ny.gov/map\" target=\"_blank\" class=\"btn-link\">Route Details <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n            </div>\n        </div>\n\n        <!-- Local Section -->\n        <div id=\"local\" class=\"section\">\n            <div class=\"grid\">\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Peekskill Coffee House</h3>\n                        <span class=\"card-badge\">Cafe</span>\n                    </div>\n                    <p class=\"card-desc\">The perfect post-ride destination for coffee, crepes, and local atmosphere in downtown Peekskill.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-mug-hot\"></i> Coffee & Food</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-users\"></i> Community</div>\n                    </div>\n                    <a href=\"https://peekskillcoffee.com\" target=\"_blank\" class=\"btn-link\">Visit Website <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Cold Spring</h3>\n                        <span class=\"card-badge\">Town</span>\n                    </div>\n                    <p class=\"card-desc\">Ride over to Cold Spring for waterfront dining, historic views, and numerous specialized bike shops.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-ship\"></i> Waterfront</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-bicycle\"></i> Bike Friendly</div>\n                    </div>\n                    <a href=\"https://www.google.com/maps/search/restaurants+in+Cold+Spring+NY\" target=\"_blank\" class=\"btn-link\">Explore Map <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Appalachian Market</h3>\n                        <span class=\"card-badge\">Pit Stop</span>\n                    </div>\n                    <p class=\"card-desc\">Essential stop for hikers and bikers near Fahnestock. Reliable spot for snacks, water, and local trail intel.</p>\n                    <div class=\"card-meta\">\n                        <div class=\"meta-item\"><i class=\"fas fa-shopping-basket\"></i> Supplies\n</div>\n                        <div class=\"meta-item\"><i class=\"fas fa-map-marker-alt\"></i> RT 9 / 301</div>\n                    </div>\n                    <a href=\"https://www.google.com/maps/place/Appalachian+Market\" target=\"_blank\" class=\"btn-link\">Map <i class=\"fas fa-external-link-alt\"></i></a>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"quick-links\">\n            <a href=\"https://weather.com/weather/today/l/10579:4:US\" target=\"_blank\" class=\"link-box\">\n                <i class=\"fas fa-sun\"></i> Weather\n            </a>\n            <a href=\"https://www.strava.com/dashboard\" target=\"_blank\" class=\"link-box\">\n                <i class=\"fab fa-strava\"></i> Strava\n            </a>\n            <a href=\"https://www.facebook.com/marketplace/category/bicycles?query=ebike\" target=\"_blank\" class=\"link-box\">\n                <i class=\"fab fa-facebook\"></i> Marketplace\n            </a>\n        </div>\n\n        <footer>\n            <p>&copy; 2024 Putnam Valley Outdoor Guide. Centered on Rochdale Road.</p>\n        </footer>\n    </div>\n\n    <script>\n        function showSection(e, sectionId) {\n            // Update tabs\n            document.querySelectorAll('.tab-btn').forEach(btn => {\n                btn.classList.remove('active');\n            });\n            e.currentTarget.classList.add('active');\n\n            // Update sections\n            document.querySelectorAll('.section').forEach(sec => {\n                sec.classList.remove('active');\n            });\n            document.getElementById(sectionId).classList.add('active');\n        }\n    </script>\n</body>\n</html>\<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Putnam Valley Outdoor Guide | 18RR</title>
+    <title>Putnam Valley Outdoor Guide</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
         :root {
             --bg: #020617;
             --card-bg: #0f172a;
@@ -16,7 +17,9 @@
             --text-dim: #94a3b8;
             --border: #1e293b;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -24,15 +27,18 @@
             line-height: 1.6;
             padding-bottom: 100px;
         }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
+
         header {
             padding: 60px 0 40px;
             text-align: center;
         }
+
         .hero-title {
             font-size: 3.5rem;
             font-weight: 800;
@@ -42,6 +48,7 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
+
         .address-tag {
             display: inline-flex;
             align-items: center;
@@ -54,6 +61,7 @@
             font-size: 0.9rem;
             margin-bottom: 30px;
         }
+
         .tabs {
             display: flex;
             justify-content: center;
@@ -62,6 +70,7 @@
             overflow-x: auto;
             padding-bottom: 10px;
         }
+
         .tab-btn {
             background: none;
             border: none;
@@ -74,31 +83,38 @@
             transition: all 0.2s;
             white-space: nowrap;
         }
+
         .tab-btn:hover {
             color: var(--text);
             background: var(--card-bg);
         }
+
         .tab-btn.active {
             color: var(--accent);
             background: var(--card-bg);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
+
         .section {
             display: none;
             animation: fadeIn 0.3s ease-out;
         }
+
         .section.active {
             display: block;
         }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 24px;
         }
+
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -107,23 +123,29 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
+
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
             box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
         }
+
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 16px;
         }
+
         .card-title {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--text);
         }
+
         .card-badge {
             background: rgba(56, 189, 248, 0.1);
             color: var(--accent);
@@ -133,11 +155,14 @@
             font-weight: 700;
             text-transform: uppercase;
         }
+
         .card-desc {
             color: var(--text-dim);
             font-size: 0.95rem;
             margin-bottom: 20px;
+            flex-grow: 1;
         }
+
         .card-meta {
             display: flex;
             flex-wrap: wrap;
@@ -145,6 +170,7 @@
             padding-top: 16px;
             border-top: 1px solid var(--border);
         }
+
         .meta-item {
             display: flex;
             align-items: center;
@@ -152,10 +178,12 @@
             font-size: 0.85rem;
             color: var(--text-dim);
         }
+
         .meta-item i {
             color: var(--accent);
             width: 14px;
         }
+
         .btn-link {
             display: inline-flex;
             align-items: center;
@@ -167,9 +195,11 @@
             font-weight: 600;
             transition: gap 0.2s;
         }
+
         .btn-link:hover {
             gap: 12px;
         }
+
         .quick-links {
             margin-top: 60px;
             display: flex;
@@ -177,6 +207,7 @@
             gap: 20px;
             flex-wrap: wrap;
         }
+
         .link-box {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -187,17 +218,23 @@
             font-weight: 600;
             text-align: center;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
         .link-box:hover {
             border-color: var(--accent);
             transform: translateY(-2px);
         }
+
         footer {
             margin-top: 80px;
             text-align: center;
             color: var(--text-dim);
             font-size: 0.9rem;
         }
+
         @media (max-width: 640px) {
             .hero-title { font-size: 2.5rem; }
             .tabs { justify-content: flex-start; }
@@ -206,6 +243,7 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <header>
             <div class="address-tag">
@@ -241,24 +279,26 @@
                         <div class="meta-item"><i class="fas fa-leaf"></i> Local Loop</div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Granite Mountain</h3>
                         <span class="card-badge">Moderate</span>
                     </div>
-                    <p class="card-desc">Rugged preserve with diverse ecology and great views. Located just minutes away.</p>
+                    <p class="card-desc">Rugged preserve with diverse ecology and great views. Features 5+ miles of trails through 500+ acres of forest.</p>
                     <div class="card-meta">
-                        <div class="meta-item"><i class="fas fa-mountain"></i> Varying Gain</div>
-                        <div class="meta-item"><i class="fas fa-tree"></i> 400+ Acres</div>
+                        <div class="meta-item"><i class="fas fa-arrows-alt-h"></i> 4 Miles</div>
+                        <div class="meta-item"><i class="fas fa-mountain"></i> 922ft Gain</div>
                     </div>
                     <a href="https://hhlt.org/granite-mountain-preserve/" target="_blank" class="btn-link">Preserve Info <i class="fas fa-external-link-alt"></i></a>
                 </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Fahnestock Loop</h3>
                         <span class="card-badge">Moderate</span>
                     </div>
-                    <p class="card-desc">Beautiful loop through Clarence Fahnestock State Park with lake views and rocky terrain.</p>
+                    <p class="card-desc">Beautiful loop through Clarence Fahnestock State Park with lake views and rocky terrain. Ideal for technical hiking.</p>
                     <div class="card-meta">
                         <div class="meta-item"><i class="fas fa-arrows-alt-h"></i> 4.5 Miles</div>
                         <div class="meta-item"><i class="fas fa-mountain"></i> 650ft Gain</div>
@@ -276,31 +316,33 @@
                         <h3 class="card-title">Putnam Trailway</h3>
                         <span class="card-badge">Paved</span>
                     </div>
-                    <p class="card-desc">Nearby rail-trail section offering 12 miles of smooth riding. Excellent for e-bike modifications.</p>
+                    <p class="card-desc">Nearby rail-trail section offering nearly 12 miles of smooth, car-free riding. Excellent for E-Bikes.</p>
                     <div class="card-meta">
-                        <div class="meta-item"><i class="fas fa-bolt"></i> E-Bike Friendly</div>
+                        <div class="meta-item"><i class="fas fa-bolt"></i> Class 1 OK</div>
                         <div class="meta-item"><i class="fas fa-road"></i> 12 Miles</div>
                     </div>
                     <a href="https://www.traillink.com/trail/putnam-trailway/" target="_blank" class="btn-link">Trail Details <i class="fas fa-external-link-alt"></i></a>
                 </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Ninham Mountain</h3>
                         <span class="card-badge">MTB</span>
                     </div>
-                    <p class="card-desc">Legendary multi-use area with fire towers and challenging terrain for mountain bikes.</p>
+                    <p class="card-desc">Legendary multi-use area with 1,000+ acres. Features fire towers and challenging terrain for both MTB and E-MTB.</p>
                     <div class="card-meta">
-                        <div class="meta-item"><i class="fas fa-mountain"></i> High Elevation</div>
-                        <div class="meta-item"><i class="fas fa-leaf"></i> Scenic</div>
+                        <div class="meta-item"><i class="fas fa-mountain"></i> 1,000ft Gain</div>
+                        <div class="meta-item"><i class="fas fa-bolt"></i> E-MTB Friendly</div>
                     </div>
                     <a href="https://www.dec.ny.gov/lands/34745.html" target="_blank" class="btn-link">Route Info <i class="fas fa-external-link-alt"></i></a>
                 </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Empire State Trail</h3>
                         <span class="card-badge">Paved</span>
                     </div>
-                    <p class="card-desc">The nearby rail-trail section offering smooth riding through scenic woodlands. Excellent for E-Bikes.</p>
+                    <p class="card-desc">Part of the 750-mile NY state network. Accessible via nearby trailheads for long-distance endurance rides.</p>
                     <div class="card-meta">
                         <div class="meta-item"><i class="fas fa-bolt"></i> E-Bike Friendly</div>
                         <div class="meta-item"><i class="fas fa-clock"></i> Long Distance</div>
@@ -318,31 +360,33 @@
                         <h3 class="card-title">Peekskill Coffee House</h3>
                         <span class="card-badge">Cafe</span>
                     </div>
-                    <p class="card-desc">The perfect post-ride destination for coffee, crepes, and local atmosphere.</p>
+                    <p class="card-desc">The perfect post-ride destination for coffee, crepes, and local atmosphere in downtown Peekskill.</p>
                     <div class="card-meta">
                         <div class="meta-item"><i class="fas fa-mug-hot"></i> Coffee & Food</div>
                         <div class="meta-item"><i class="fas fa-users"></i> Community</div>
                     </div>
                     <a href="https://peekskillcoffee.com" target="_blank" class="btn-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
                 </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Cold Spring</h3>
                         <span class="card-badge">Town</span>
                     </div>
-                    <p class="card-desc">Ride over to Cold Spring for waterfront dining and numerous specialized bike shops.</p>
+                    <p class="card-desc">Ride over to Cold Spring for waterfront dining, historic views, and numerous specialized bike shops.</p>
                     <div class="card-meta">
                         <div class="meta-item"><i class="fas fa-ship"></i> Waterfront</div>
                         <div class="meta-item"><i class="fas fa-bicycle"></i> Bike Friendly</div>
                     </div>
                     <a href="https://www.google.com/maps/search/restaurants+in+Cold+Spring+NY" target="_blank" class="btn-link">Explore Map <i class="fas fa-external-link-alt"></i></a>
                 </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Appalachian Market</h3>
                         <span class="card-badge">Pit Stop</span>
                     </div>
-                    <p class="card-desc">Essential stop for hikers and bikers near Fahnestock. Great snacks and gear info.</p>
+                    <p class="card-desc">Essential stop for hikers and bikers near Fahnestock. Reliable spot for snacks, water, and local trail intel.</p>
                     <div class="card-meta">
                         <div class="meta-item"><i class="fas fa-shopping-basket"></i> Supplies</div>
                         <div class="meta-item"><i class="fas fa-map-marker-alt"></i> RT 9 / 301</div>
@@ -353,13 +397,19 @@
         </div>
 
         <div class="quick-links">
-            <a href="https://weather.com/weather/today/l/10579:4:US" target="_blank" class="link-box"><i class="fas fa-sun"></i> Weather</a>
-            <a href="https://www.strava.com/dashboard" target="_blank" class="link-box"><i class="fab fa-strava"></i> Strava</a>
-            <a href="https://www.facebook.com/marketplace/category/bicycles" target="_blank" class="link-box"><i class="fab fa-facebook"></i> Marketplace</a>
+            <a href="https://weather.com/weather/today/l/10579:4:US" target="_blank" class="link-box">
+                <i class="fas fa-sun"></i> Weather
+            </a>
+            <a href="https://www.strava.com/dashboard" target="_blank" class="link-box">
+                <i class="fab fa-strava"></i> Strava
+            </a>
+            <a href="https://www.facebook.com/marketplace/category/bicycles?query=ebike" target="_blank" class="link-box">
+                <i class="fab fa-facebook"></i> Marketplace
+            </a>
         </div>
 
         <footer>
-            <p>&copy; 2024 Putnam Valley Outdoor Guide. Centered on 18 Rochdale Road.</p>
+            <p>&copy; 2024 Putnam Valley Outdoor Guide. Centered on Rochdale Road.</p>
         </footer>
     </div>
 
@@ -380,5 +430,3 @@
     </script>
 </body>
 </html>
-
-<!-- Force Deployment: 2026-04-02-v2 -->
